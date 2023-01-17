@@ -1,0 +1,76 @@
+/* 
+  Localizable.strings
+  BoatGame
+
+  Created by Rstam Ganizoda on 13/01/2023.
+  
+*/
+
+// General
+
+"Back" = "Zurück";
+
+"Cancel" = "Abbrechen";
+
+"Error" = "Fehler";
+
+// MainMenuViewController
+
+"Missing game settings" = "Fehlende Spieleinstellungen";
+
+"Please, set the game parameters" = "Bitte, setze die Spielparameter";
+
+"Set" = "Einstellen";
+
+"Boat Simulator" = "Bootssimulator";
+
+"Records" = "Aufzeich.";
+
+"Settings" = "Einstellungen";
+
+"Start Game" = "Spiel starten";
+
+
+// RecordsViewController
+
+"Top fifteen results" = "Top 15 Ergebnisse";
+
+"Records" = "Aufzeich.";
+
+// SettingsViewController
+
+"White" = "Weiß";
+
+"Purple" = "Lila";
+
+"Green" = "Grün";
+
+"Mountains" = "Berge";
+
+"Icebergs" = "Eisberge";
+
+"Whales" = "Wale";
+
+"Game settings" = "Spieleinstellungen";
+
+"Enter the player name" = "Geben Sie den Spielernamen ein";
+
+"Please enter your name" = "Bitte geben Sie Ihren Namen ein";
+
+"Select the boat" = "Boot auswählen";
+
+"Select the enemy" = "Wähle den Feind aus";
+
+"Save" = "Speichern";
+
+"Please, write the player name" = "Bitte schreiben Sie den Spielernamen";
+
+// ViewController
+
+"GAME OVER" = "SPIEL AUS";
+
+"Good luck, " = "Viel Glück, ";
+
+"Try again" = "Erneut versuchen";
+
+"Your score is " = "Ihre Punktzahl ist ";
