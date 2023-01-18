@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import CoreMotion
 
 class ViewController: UIViewController {
     
@@ -7,14 +8,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButtonView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gameView: UIView!
-    @IBOutlet weak var rightDirectionButton: UIButton!
-    @IBOutlet weak var leftDirectionButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     //  MARK: - let/var
-    let directionForBoat = CGFloat(25)
+    let directionForBoat = CGFloat(10)
     let cornerRadiusForButtons = CGFloat(16)
     let colorForDirectionButtons: UIColor = .systemBlue
     let widthOfEnemies = 60
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
     let durationForThirdEnemy = 6.1
     let boatSize = CGFloat(80)
     var scores = 0
+    var accelerometerUpdateInterval = 0.10
     let gameSoundtrack = "gameSoundtrack"
     let boatExplosionSound = "boatExplosion"
     let date = Date()
@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     var scoreTimer = Timer()
     var intersectionTimer = Timer()
     var player: AVAudioPlayer?
+    let motionManager = CMMotionManager()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -60,11 +61,11 @@ class ViewController: UIViewController {
         addUserName()
         createBackground()
         moveSeaDown()
+        addAccelerometer()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        createDirectionButtons()
         createBackButton()
     }
         
@@ -75,16 +76,9 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func rightDirectionButtonPressed(_ sender: UIButton) {
-        moveRight()
-    }
-    
-    @IBAction func leftDirectionButtonPressed(_ sender: UIButton) {
-        moveLeft()
-    }
-    
     @IBAction func backButtonPressed(_ sender: UIButton){
         intersectionTimer.invalidate()
+        motionManager.stopAccelerometerUpdates()
         self.popToMainMenuVC()
         player?.stop()
     }
@@ -140,11 +134,10 @@ class ViewController: UIViewController {
     private  func createBoat(){
         boatImageView.frame = CGRect(
             x: self.gameView.frame.width / 2 - self.boatSize / 2,
-            y: self.gameView.frame.height - self.boatSize,
+            y: self.gameView.frame.height - self.boatSize * 1.5,
             width: self.boatSize,
             height: self.boatSize
         )
-        
         guard let imageName = StorageManager.shared.loadBoatName() else { return }
         let boatImage = StorageManager.shared.loadBoatImage(fileName: imageName)
         self.boatImageView.image = boatImage
@@ -158,28 +151,36 @@ class ViewController: UIViewController {
         backButton.setTitle("Back".localized, for: .normal)
     }
     
-    private func createDirectionButtons(){
-        rightDirectionButton.dropShadow()
-        rightDirectionButton.buttonParameters(
-            radius: self.cornerRadiusForButtons,
-            backgroundColor: self.colorForDirectionButtons,
-            borderWidth: self.borderWidthForButtons
-        )
-       
-        leftDirectionButton.dropShadow()
-        leftDirectionButton.buttonParameters(
-            radius: self.cornerRadiusForButtons,
-            backgroundColor: self.colorForDirectionButtons,
-            borderWidth: self.borderWidthForButtons
-        )
-    }
-    
     private func createExplosion() {
         let explosionImage = UIImage(named: "explosion")
         self.boatImageView.image = explosionImage
     }
     
     // MARK: Functionality
+    private func addAccelerometer() {
+        guard motionManager.isAccelerometerAvailable else { return }
+        motionManager.startAccelerometerUpdates(to: .main) { data, error in
+            guard let info = data?.acceleration else { return }
+            let slope = info.x
+            if slope > 0.15 && slope < 0.35 {
+                self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval
+                self.moveRight()
+            }
+            if slope >= 0.35 {
+                self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval / 2
+                self.moveRight()
+            }
+            if slope < -0.15 && slope > -0.35 {
+                self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval
+                self.moveLeft()
+            }
+            if slope <= -0.35 {
+                self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval / 2
+                self.moveLeft()
+            }
+        }
+    }
+    
     private   func moveRight() {
         if self.boatImageView.frame.origin.x <= self.view.frame.width - self.boatImageView.frame.width {
             UIView.animate(withDuration: self.durationForBoat) {
@@ -199,23 +200,27 @@ class ViewController: UIViewController {
     }
     
     private func createAllEnemies(){
-            createEnemy(enemyImageView: firstEnemyImageView,
-                        mountainEnemy: enemiesArray[0].firstEnemy,
-                        icebergEnemy: enemiesArray[1].firstEnemy,
-                        whaleEnemy: enemiesArray[2].firstEnemy,
-                        enemyDuration: durationForFirstEnemy)
-            
-            createEnemy(enemyImageView: secondEnemyImageView,
-                        mountainEnemy: enemiesArray[0].secondEnemy,
-                        icebergEnemy: enemiesArray[1].secondEnemy,
-                        whaleEnemy: enemiesArray[2].secondEnemy,
-                        enemyDuration: durationForSecondEnemy)
-            
-            createEnemy(enemyImageView: thirdEnemyImageView,
-                        mountainEnemy: enemiesArray[0].thirdEnemy,
-                        icebergEnemy: enemiesArray[1].thirdEnemy,
-                        whaleEnemy: enemiesArray[2].thirdEnemy,
-                        enemyDuration: durationForThirdEnemy)
+            createEnemy(
+                enemyImageView: firstEnemyImageView,
+                mountainEnemy: enemiesArray[0].firstEnemy,
+                icebergEnemy: enemiesArray[1].firstEnemy,
+                whaleEnemy: enemiesArray[2].firstEnemy,
+                enemyDuration: durationForFirstEnemy
+            )
+            createEnemy(
+                enemyImageView: secondEnemyImageView,
+                mountainEnemy: enemiesArray[0].secondEnemy,
+                icebergEnemy: enemiesArray[1].secondEnemy,
+                whaleEnemy: enemiesArray[2].secondEnemy,
+                enemyDuration: durationForSecondEnemy
+            )
+            createEnemy(
+                enemyImageView: thirdEnemyImageView,
+                mountainEnemy: enemiesArray[0].thirdEnemy,
+                icebergEnemy: enemiesArray[1].thirdEnemy,
+                whaleEnemy: enemiesArray[2].thirdEnemy,
+                enemyDuration: durationForThirdEnemy
+            )
     }
     
     private func createEnemy(
@@ -228,7 +233,12 @@ class ViewController: UIViewController {
         
         let x = Int(arc4random_uniform(UInt32(gameView.frame.width)))
         let y = Int(arc4random_uniform(UInt32(gameView.frame.origin.x)))
-        let coordinatesForEnemies = CGRect(x: x, y: y, width: self.widthOfEnemies, height: self.heightOfEnemies)
+        let coordinatesForEnemies = CGRect(
+            x: x,
+            y: y,
+            width: self.widthOfEnemies,
+            height: self.heightOfEnemies
+        )
         switch chosenEnemyIndex {
         case 0:
             if let firstEnemy = UIImage(named: mountainEnemy) {
@@ -256,11 +266,13 @@ class ViewController: UIViewController {
         } completion: { _ in
             enemyImageView.removeFromSuperview()
             self.enemies.removeFirst()
-            self.createEnemy(enemyImageView: enemyImageView,
-                             mountainEnemy: mountainEnemy,
-                             icebergEnemy: icebergEnemy,
-                             whaleEnemy: whaleEnemy,
-                             enemyDuration: enemyDuration)
+            self.createEnemy(
+                enemyImageView: enemyImageView,
+                mountainEnemy: mountainEnemy,
+                icebergEnemy: icebergEnemy,
+                whaleEnemy: whaleEnemy,
+                enemyDuration: enemyDuration
+            )
         }
         enemyImageView.dropShadowForImages()
     }
@@ -329,7 +341,11 @@ class ViewController: UIViewController {
     }
     
     private func gameOverAlert(){
-        createAlert(title: "GAME OVER".localized, message: ("Your score is ".localized + "\(scores)"), options: "Try again".localized) { (option) in
+        createAlert(
+            title: "GAME OVER".localized,
+            message: ("Your score is ".localized + "\(scores)"),
+            options: "Try again".localized
+        ) { (option) in
             switch (option) {
             case "Try again".localized:
                 self.popToMainMenuVC()
@@ -341,6 +357,7 @@ class ViewController: UIViewController {
     }
         
     private func gameOver(){
+        motionManager.stopAccelerometerUpdates()
         scoreTimer.invalidate()
         intersectionTimer.invalidate()
         createExplosion()
@@ -354,7 +371,11 @@ class ViewController: UIViewController {
         let currentDate = dateFormatter.string(from: date)
         
         // Save result of the game
-        let result = Records(name: StorageManager.shared.loadUserName(), score: scores, date: currentDate)
+        let result = Records(
+            name: StorageManager.shared.loadUserName(),
+            score: scores,
+            date: currentDate
+        )
         recordArray?.append(result)
         StorageManager.shared.saveRecords(array: recordArray)
     }
@@ -368,6 +389,9 @@ extension UIImageView {
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 5, height: 12)
         self.layer.shadowRadius = 30
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+        self.layer.shadowPath = UIBezierPath(
+            roundedRect: self.bounds,
+            cornerRadius: self.layer.cornerRadius
+        ).cgPath
     }
 }

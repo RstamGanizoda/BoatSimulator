@@ -71,12 +71,20 @@ extension RecordsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
-        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+        cell.backgroundColor = UIColor(
+            red: 1,
+            green: 1,
+            blue: 1,
+            alpha: 0.3
+        )
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: .zero)
-        headerView.frame.size = CGSize(width: recordsTableView.frame.width, height: rowAndHeaderHeight)
+        headerView.frame.size = CGSize(
+            width: recordsTableView.frame.width,
+            height: rowAndHeaderHeight
+        )
         let label = UILabel()
         label.frame = CGRect(
             x: headerView.frame.origin.x,

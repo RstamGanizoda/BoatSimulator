@@ -64,7 +64,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func enemySegmentedSelected(_ sender: UISegmentedControl) {
         StorageManager.shared.saveEnemy(sender.selectedSegmentIndex)
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "chosenOptionOfEnemy")
+        UserDefaults.standard.set(
+            sender.selectedSegmentIndex,
+            forKey: "chosenOptionOfEnemy"
+        )
     }
     
     // MARK: Navigation
@@ -167,7 +170,11 @@ class SettingsViewController: UIViewController {
     }
     
     private func missingPlayerNameAlert(){
-        let alert = UIAlertController(title: "Error".localized, message: "Please, write the player name".localized, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Error".localized,
+            message: "Please, write the player name".localized,
+            preferredStyle: .alert
+        )
         let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
         alert.addAction(cancel)
         self.present(alert, animated: true)

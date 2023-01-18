@@ -154,7 +154,12 @@ class MainMenuViewController: UIViewController {
     }
     
     private func showMissingSettingsAlert(){
-        createAlert(title: "Missing game settings".localized, message: "Please, set the game parameters".localized, options: "Cancel".localized, "Set".localized) { (option) in
+        createAlert(
+            title: "Missing game settings".localized,
+            message: "Please, set the game parameters".localized,
+            options: "Cancel".localized,
+            "Set".localized
+        ) { (option) in
             switch (option) {
             case "Cancel".localized:
                 break
@@ -171,7 +176,11 @@ class MainMenuViewController: UIViewController {
 // MARK: - EXTENSIONS
 extension UIView {
 
-    func buttonParameters(radius: CGFloat = 10, backgroundColor: UIColor = .systemGray, borderWidth: Double) {
+    func buttonParameters(
+        radius: CGFloat = 10,
+        backgroundColor: UIColor = .systemGray,
+        borderWidth: Double
+    ) {
         self.layer.cornerRadius = radius
         self.layer.borderWidth = borderWidth
         self.backgroundColor = backgroundColor
@@ -183,7 +192,10 @@ extension UIView {
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 5, height: 8)
         self.layer.shadowRadius = 15
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+        self.layer.shadowPath = UIBezierPath(
+            roundedRect: self.bounds,
+            cornerRadius: self.layer.cornerRadius
+        ).cgPath
     }
 
     func addGradient() {
