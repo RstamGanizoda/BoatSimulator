@@ -5,7 +5,6 @@ import CoreMotion
 class ViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var bottomButtonView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var backButton: UIButton!
@@ -20,6 +19,7 @@ class ViewController: UIViewController {
     let heightOfEnemies = 60
     let downDirection = CGFloat(300)
     let durationForBoat = 0.3
+    let durationForBoatJump = 1.0
     let borderWidthForButtons = 0.5
     let durationForTheSea = 10.1
     let durationForFirstEnemy = 8.1
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     let boatSize = CGFloat(80)
     var scores = 0
     var accelerometerUpdateInterval = 0.10
+    var gyroUpdateInterval = 0.50
     let gameSoundtrack = "gameSoundtrack"
     let boatExplosionSound = "boatExplosion"
     let date = Date()
@@ -62,13 +63,15 @@ class ViewController: UIViewController {
         createBackground()
         moveSeaDown()
         addAccelerometer()
+        makeBoatJumpGyro()
+        addTapRecognizerForBoatJump()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         createBackButton()
     }
-        
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         createBoat()
@@ -79,6 +82,7 @@ class ViewController: UIViewController {
     @IBAction func backButtonPressed(_ sender: UIButton){
         intersectionTimer.invalidate()
         motionManager.stopAccelerometerUpdates()
+        motionManager.stopGyroUpdates()
         self.popToMainMenuVC()
         player?.stop()
     }
@@ -157,6 +161,48 @@ class ViewController: UIViewController {
     }
     
     // MARK: Functionality
+    private func addTapRecognizerForBoatJump(){
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapDetected(_:)))
+        recognizer.numberOfTapsRequired = 2
+        self.gameView.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func tapDetected(_ recognizer: UITapGestureRecognizer) {
+        self.addBoatJumpAnimation()
+    }
+    
+    private func makeBoatJumpGyro() {
+        motionManager.gyroUpdateInterval = self.gyroUpdateInterval
+        motionManager.startGyroUpdates(to: .main) { data, error in
+            guard let info = data?.rotationRate else { return }
+            let shake = info.x
+            if shake >= 1.20 || shake <= -1.20 {
+                self.addBoatJumpAnimation()
+            }
+        }
+    }
+    
+    private func addBoatJumpAnimation(){
+        self.intersectionTimer.invalidate()
+        UIView.animate(withDuration: self.durationForBoatJump) {
+            self.boatImageView.frame.size = CGSize(
+                width: self.boatSize * 2,
+                height: self.boatSize * 2
+            )
+            self.boatImageView.frame.origin.y = self.gameView.frame.height - self.boatSize * 4
+        } completion: { _ in
+            UIView.animate(withDuration: self.durationForBoatJump) {
+                self.boatImageView.frame.size = CGSize(
+                    width: self.boatSize,
+                    height: self.boatSize
+                )
+                self.boatImageView.frame.origin.y = self.gameView.frame.height - self.boatSize * 1.5
+            } completion: { _ in
+                self.setupIntersectionTimer()
+            }
+        }
+    }
+    
     private func addAccelerometer() {
         guard motionManager.isAccelerometerAvailable else { return }
         motionManager.startAccelerometerUpdates(to: .main) { data, error in
@@ -164,24 +210,24 @@ class ViewController: UIViewController {
             let slope = info.x
             if slope > 0.15 && slope < 0.35 {
                 self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval
-                self.moveRight()
+                self.moveBoatRight()
             }
             if slope >= 0.35 {
                 self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval / 2
-                self.moveRight()
+                self.moveBoatRight()
             }
             if slope < -0.15 && slope > -0.35 {
                 self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval
-                self.moveLeft()
+                self.moveBoatLeft()
             }
             if slope <= -0.35 {
                 self.motionManager.accelerometerUpdateInterval = self.accelerometerUpdateInterval / 2
-                self.moveLeft()
+                self.moveBoatLeft()
             }
         }
     }
     
-    private   func moveRight() {
+    private   func moveBoatRight() {
         if self.boatImageView.frame.origin.x <= self.view.frame.width - self.boatImageView.frame.width {
             UIView.animate(withDuration: self.durationForBoat) {
                 self.boatImageView.frame.origin.x += self.directionForBoat }
@@ -190,7 +236,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func moveLeft() {
+    private func moveBoatLeft() {
         if self.boatImageView.frame.origin.x >= 0 {
             UIView.animate(withDuration: self.durationForBoat) {
                 self.boatImageView.frame.origin.x -= self.directionForBoat }
@@ -200,27 +246,27 @@ class ViewController: UIViewController {
     }
     
     private func createAllEnemies(){
-            createEnemy(
-                enemyImageView: firstEnemyImageView,
-                mountainEnemy: enemiesArray[0].firstEnemy,
-                icebergEnemy: enemiesArray[1].firstEnemy,
-                whaleEnemy: enemiesArray[2].firstEnemy,
-                enemyDuration: durationForFirstEnemy
-            )
-            createEnemy(
-                enemyImageView: secondEnemyImageView,
-                mountainEnemy: enemiesArray[0].secondEnemy,
-                icebergEnemy: enemiesArray[1].secondEnemy,
-                whaleEnemy: enemiesArray[2].secondEnemy,
-                enemyDuration: durationForSecondEnemy
-            )
-            createEnemy(
-                enemyImageView: thirdEnemyImageView,
-                mountainEnemy: enemiesArray[0].thirdEnemy,
-                icebergEnemy: enemiesArray[1].thirdEnemy,
-                whaleEnemy: enemiesArray[2].thirdEnemy,
-                enemyDuration: durationForThirdEnemy
-            )
+        createEnemy(
+            enemyImageView: firstEnemyImageView,
+            mountainEnemy: enemiesArray[0].firstEnemy,
+            icebergEnemy: enemiesArray[1].firstEnemy,
+            whaleEnemy: enemiesArray[2].firstEnemy,
+            enemyDuration: durationForFirstEnemy
+        )
+        createEnemy(
+            enemyImageView: secondEnemyImageView,
+            mountainEnemy: enemiesArray[0].secondEnemy,
+            icebergEnemy: enemiesArray[1].secondEnemy,
+            whaleEnemy: enemiesArray[2].secondEnemy,
+            enemyDuration: durationForSecondEnemy
+        )
+        createEnemy(
+            enemyImageView: thirdEnemyImageView,
+            mountainEnemy: enemiesArray[0].thirdEnemy,
+            icebergEnemy: enemiesArray[1].thirdEnemy,
+            whaleEnemy: enemiesArray[2].thirdEnemy,
+            enemyDuration: durationForThirdEnemy
+        )
     }
     
     private func createEnemy(
@@ -261,6 +307,7 @@ class ViewController: UIViewController {
         enemyImageView.frame = coordinatesForEnemies
         self.enemies.append(enemyImageView)
         self.gameView.addSubview(enemyImageView)
+        self.gameView.sendSubviewToBack(enemyImageView)
         UIView.animate(withDuration: enemyDuration, delay: 0, options: .curveLinear) {
             enemyImageView.frame.origin.y += self.view.frame.height + self.gameView.frame.height
         } completion: { _ in
@@ -355,9 +402,10 @@ class ViewController: UIViewController {
             }
         }
     }
-        
+    
     private func gameOver(){
         motionManager.stopAccelerometerUpdates()
+        motionManager.stopGyroUpdates()
         scoreTimer.invalidate()
         intersectionTimer.invalidate()
         createExplosion()
