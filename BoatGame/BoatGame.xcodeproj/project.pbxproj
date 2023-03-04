@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DD2C0357FEEA0C87CBF1865 /* Pods_BoatGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */; };
 		3F000D242922CB03007605D9 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F000D232922CB03007605D9 /* UIViewController + Extension.swift */; };
 		3F1E2BC22911BF1400B26D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */; };
 		3F1E2BC62911BF1400B26D82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC52911BF1400B26D82 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 		3F635B55292C3A020039B818 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F635B54292C3A020039B818 /* StorageManager.swift */; };
 		3F73D4AA296ACBE000428B95 /* gameSoundtrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */; };
 		3F73D4AC296AD34500428B95 /* boatExplosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */; };
+		3F8BD2B72996A19300615BCE /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BD2B62996A19300615BCE /* RecordViewModel.swift */; };
 		3FAEBDCD295A2DDE0052AB1C /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */; };
 		3FAEBDD0295A2EA60052AB1C /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEBDCF295A2EA60052AB1C /* Records.swift */; };
 		3FB74B4929479A0E0052B000 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB74B4829479A0E0052B000 /* RecordsViewController.swift */; };
@@ -29,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		284ED44B7C7E8B78C5FE58C8 /* Pods-BoatGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatGame.release.xcconfig"; path = "Target Support Files/Pods-BoatGame/Pods-BoatGame.release.xcconfig"; sourceTree = "<group>"; };
 		3F000D232922CB03007605D9 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController + Extension.swift"; path = "BoatGame/Extensions/UIViewController + Extension.swift"; sourceTree = SOURCE_ROOT; };
 		3F1E2BBE2911BF1400B26D82 /* BoatGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		3F635B54292C3A020039B818 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameSoundtrack.mp3; sourceTree = "<group>"; };
 		3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boatExplosion.mp3; sourceTree = "<group>"; };
+		3F8BD2B62996A19300615BCE /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
 		3FAEBDCF295A2EA60052AB1C /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
 		3FB74B4829479A0E0052B000 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		3FD6FC692971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FD6FC6A297456260022659E /* Enemies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemies.swift; sourceTree = "<group>"; };
 		3FD6FC6C29745BFF0022659E /* EnemiesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemiesData.swift; sourceTree = "<group>"; };
+		50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatGame.debug.xcconfig"; path = "Target Support Files/Pods-BoatGame/Pods-BoatGame.debug.xcconfig"; sourceTree = "<group>"; };
+		93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,18 +69,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DD2C0357FEEA0C87CBF1865 /* Pods_BoatGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F000D252923879C007605D9 /* Extensions */ = {
+		39EB9DEE503F39CDE4F07ED2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F000D252923879C007605D9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				3F000D232922CB03007605D9 /* UIViewController + Extension.swift */,
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		3F1E2BB52911BF1400B26D82 = {
@@ -82,6 +97,8 @@
 			children = (
 				3F1E2BC02911BF1400B26D82 /* BoatGame */,
 				3F1E2BBF2911BF1400B26D82 /* Products */,
+				5FADCF846F2F4DB36D279949 /* Pods */,
+				39EB9DEE503F39CDE4F07ED2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,13 +113,13 @@
 		3F1E2BC02911BF1400B26D82 /* BoatGame */ = {
 			isa = PBXGroup;
 			children = (
-				3FD6FC6E2975E5B70022659E /* Helpers */,
+				3FD6FC6E2975E5B70022659E /* Helper */,
 				3FD6FC602971AAC90022659E /* Localizable */,
 				3FAEBDCE295A2DF70052AB1C /* Classes */,
-				3FB74B4A29479A1A0052B000 /* Cells */,
-				3F000D252923879C007605D9 /* Extensions */,
-				3F26163B291C596A001B6C7F /* Resources */,
-				3F261638291C432D001B6C7F /* Controllers */,
+				3FB74B4A29479A1A0052B000 /* Cell */,
+				3F000D252923879C007605D9 /* Extension */,
+				3F26163B291C596A001B6C7F /* Resource */,
+				3F261638291C432D001B6C7F /* Controller */,
 				3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */,
 				3F1E2BC72911BF1400B26D82 /* Main.storyboard */,
 				3F1E2BCA2911BF1B00B26D82 /* Assets.xcassets */,
@@ -112,25 +129,26 @@
 			path = BoatGame;
 			sourceTree = "<group>";
 		};
-		3F261638291C432D001B6C7F /* Controllers */ = {
+		3F261638291C432D001B6C7F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				3F261639291C4358001B6C7F /* MainMenuViewController.swift */,
 				3F620845292A65060040B909 /* SettingsViewController.swift */,
 				3FB74B4829479A0E0052B000 /* RecordsViewController.swift */,
+				3F8BD2B62996A19300615BCE /* RecordViewModel.swift */,
 				3F1E2BC52911BF1400B26D82 /* ViewController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		3F26163B291C596A001B6C7F /* Resources */ = {
+		3F26163B291C596A001B6C7F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				3F26163C291C5982001B6C7F /* days-one.regular.ttf */,
 				3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */,
 				3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */,
 			);
-			path = Resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		3FAEBDCE295A2DF70052AB1C /* Classes */ = {
@@ -144,12 +162,12 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		3FB74B4A29479A1A0052B000 /* Cells */ = {
+		3FB74B4A29479A1A0052B000 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				3FB74B4B29479A330052B000 /* RecordsTableViewCell.swift */,
 			);
-			path = Cells;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3FD6FC602971AAC90022659E /* Localizable */ = {
@@ -160,12 +178,21 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		3FD6FC6E2975E5B70022659E /* Helpers */ = {
+		3FD6FC6E2975E5B70022659E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				3F635B54292C3A020039B818 /* StorageManager.swift */,
 			);
-			path = Helpers;
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5FADCF846F2F4DB36D279949 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */,
+				284ED44B7C7E8B78C5FE58C8 /* Pods-BoatGame.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,9 +202,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F1E2BD22911BF1B00B26D82 /* Build configuration list for PBXNativeTarget "BoatGame" */;
 			buildPhases = (
+				096D88511D424039C3605C6E /* [CP] Check Pods Manifest.lock */,
 				3F1E2BBA2911BF1400B26D82 /* Sources */,
 				3F1E2BBB2911BF1400B26D82 /* Frameworks */,
 				3F1E2BBC2911BF1400B26D82 /* Resources */,
+				C9EE08AF49DF8CAFABD2A2FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +269,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		096D88511D424039C3605C6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BoatGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9EE08AF49DF8CAFABD2A2FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoatGame/Pods-BoatGame-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoatGame/Pods-BoatGame-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoatGame/Pods-BoatGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F1E2BBA2911BF1400B26D82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -253,6 +324,7 @@
 				3F1E2BC62911BF1400B26D82 /* ViewController.swift in Sources */,
 				3FD6FC6B297456260022659E /* Enemies.swift in Sources */,
 				3F620846292A65060040B909 /* SettingsViewController.swift in Sources */,
+				3F8BD2B72996A19300615BCE /* RecordViewModel.swift in Sources */,
 				3F1E2BC22911BF1400B26D82 /* AppDelegate.swift in Sources */,
 				3FAEBDCD295A2DDE0052AB1C /* RecordData.swift in Sources */,
 				3FAEBDD0295A2EA60052AB1C /* Records.swift in Sources */,
@@ -414,6 +486,7 @@
 		};
 		3F1E2BD32911BF1B00B26D82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,6 +517,7 @@
 		};
 		3F1E2BD42911BF1B00B26D82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 284ED44B7C7E8B78C5FE58C8 /* Pods-BoatGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
