@@ -1,4 +1,6 @@
 import UIKit
+import RxCocoa
+import RxSwift
 
 class RecordsViewController: UIViewController {
     
@@ -9,15 +11,17 @@ class RecordsViewController: UIViewController {
     @IBOutlet weak var mainRecordsLabel: UILabel!
     
     // MARK: let/var
-    var allRecords = StorageManager.shared.getRecords()
+    let viewModel = RecordViewModel()
+    private let disposeBag = DisposeBag()
     let borderWidthForButtons = 0.5
     let rowAndHeaderHeight = CGFloat(55)
     let fontName = "DaysOne-Regular"
-    let maxResultAmount = 15
     
     // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.createRecords()
+        configureRecordTable()
     }
     
     override func viewDidLayoutSubviews() {
@@ -43,33 +47,27 @@ class RecordsViewController: UIViewController {
         mainRecordsLabel.text = "Records".localized
     }
     
+    private func configureRecordTable() {
+        viewModel.dataSource.bind(
+            to: recordsTableView.rx.items(
+                cellIdentifier: RecordsTableViewCell.identifier,
+                cellType: RecordsTableViewCell.self)) { index, model, cell in
+                    cell.configurePlayerName(name: model.name)
+                    cell.configureDate(date: model.date)
+                    cell.configureRowNumber(row: String(index + 1))
+                    cell.configurePlayerScore(score: model.score)
+                }.disposed(by: disposeBag)
+        
+        recordsTableView.delegate = self
+    }
 }
 
 // MARK: extensions
-extension RecordsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if allRecords?.count ?? 0 <= maxResultAmount {
-            return allRecords?.count ?? 0
-        } else {
-            return maxResultAmount
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = recordsTableView.dequeueReusableCell(withIdentifier: RecordsTableViewCell.identifier, for: indexPath) as? RecordsTableViewCell,
-              let sortedRecords = ( allRecords?.sorted { $0.score > $1.score} ) else { return UITableViewCell()}
-        let allGameRecords = sortedRecords[indexPath.row]
-        cell.configurePlayerName(name: allGameRecords.name)
-        cell.configurePlayerScore(score: allGameRecords.score)
-        cell.configureRowNumber(row: String(indexPath.row + 1))
-        cell.configureDate(date: allGameRecords.date)
-        return cell
-    }
-    
+extension RecordsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         rowAndHeaderHeight
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
         cell.backgroundColor = UIColor(
             red: 1,
@@ -78,7 +76,7 @@ extension RecordsViewController: UITableViewDataSource, UITableViewDelegate {
             alpha: 0.3
         )
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: .zero)
         headerView.frame.size = CGSize(
@@ -92,8 +90,8 @@ extension RecordsViewController: UITableViewDataSource, UITableViewDelegate {
             width: headerView.frame.width,
             height: headerView.frame.height
         )
-        
-        label.text = "Top fifteen results".localized
+
+        label.text = "Top results".localized
         let customFont = UIFont(name: fontName, size: UIFont.labelFontSize)
         label.font = UIFontMetrics.default.scaledFont(for: customFont ?? .systemFont(ofSize: 15))
         label.textColor = .black
@@ -101,7 +99,7 @@ extension RecordsViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.addSubview(label)
         return headerView
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         rowAndHeaderHeight
     }
