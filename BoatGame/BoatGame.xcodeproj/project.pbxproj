@@ -10,7 +10,7 @@
 		0DD2C0357FEEA0C87CBF1865 /* Pods_BoatGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */; };
 		3F000D242922CB03007605D9 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F000D232922CB03007605D9 /* UIViewController + Extension.swift */; };
 		3F1E2BC22911BF1400B26D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */; };
-		3F1E2BC62911BF1400B26D82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC52911BF1400B26D82 /* ViewController.swift */; };
+		3F1E2BC62911BF1400B26D82 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC52911BF1400B26D82 /* GameViewController.swift */; };
 		3F1E2BC92911BF1400B26D82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC72911BF1400B26D82 /* Main.storyboard */; };
 		3F1E2BCB2911BF1B00B26D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E2BCA2911BF1B00B26D82 /* Assets.xcassets */; };
 		3F1E2BCE2911BF1B00B26D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E2BCC2911BF1B00B26D82 /* LaunchScreen.storyboard */; };
@@ -20,13 +20,11 @@
 		3F635B55292C3A020039B818 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F635B54292C3A020039B818 /* StorageManager.swift */; };
 		3F73D4AA296ACBE000428B95 /* gameSoundtrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */; };
 		3F73D4AC296AD34500428B95 /* boatExplosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */; };
-		3F8BD2B72996A19300615BCE /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BD2B62996A19300615BCE /* RecordViewModel.swift */; };
+		3F8BD2B72996A19300615BCE /* RecordViewСontrollerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BD2B62996A19300615BCE /* RecordViewСontrollerModel.swift */; };
 		3FAEBDCD295A2DDE0052AB1C /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */; };
-		3FAEBDD0295A2EA60052AB1C /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEBDCF295A2EA60052AB1C /* Records.swift */; };
 		3FB74B4929479A0E0052B000 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB74B4829479A0E0052B000 /* RecordsViewController.swift */; };
 		3FB74B4C29479A330052B000 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB74B4B29479A330052B000 /* RecordsTableViewCell.swift */; };
 		3FD6FC632971AB2F0022659E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FD6FC652971AB2F0022659E /* Localizable.strings */; };
-		3FD6FC6B297456260022659E /* Enemies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6FC6A297456260022659E /* Enemies.swift */; };
 		3FD6FC6D29745BFF0022659E /* EnemiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6FC6C29745BFF0022659E /* EnemiesData.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +33,7 @@
 		3F000D232922CB03007605D9 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController + Extension.swift"; path = "BoatGame/Extensions/UIViewController + Extension.swift"; sourceTree = SOURCE_ROOT; };
 		3F1E2BBE2911BF1400B26D82 /* BoatGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F1E2BC52911BF1400B26D82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F1E2BC52911BF1400B26D82 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3F1E2BC82911BF1400B26D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F1E2BCA2911BF1B00B26D82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F1E2BCD2911BF1B00B26D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,9 +44,8 @@
 		3F635B54292C3A020039B818 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameSoundtrack.mp3; sourceTree = "<group>"; };
 		3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boatExplosion.mp3; sourceTree = "<group>"; };
-		3F8BD2B62996A19300615BCE /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		3F8BD2B62996A19300615BCE /* RecordViewСontrollerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordViewСontrollerModel.swift"; sourceTree = "<group>"; };
 		3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
-		3FAEBDCF295A2EA60052AB1C /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
 		3FB74B4829479A0E0052B000 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		3FB74B4B29479A330052B000 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		3FD6FC5E2971AABB0022659E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 		3FD6FC672971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3FD6FC682971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3FD6FC692971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3FD6FC6A297456260022659E /* Enemies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemies.swift; sourceTree = "<group>"; };
 		3FD6FC6C29745BFF0022659E /* EnemiesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemiesData.swift; sourceTree = "<group>"; };
 		50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatGame.debug.xcconfig"; path = "Target Support Files/Pods-BoatGame/Pods-BoatGame.debug.xcconfig"; sourceTree = "<group>"; };
 		93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +109,7 @@
 		3F1E2BC02911BF1400B26D82 /* BoatGame */ = {
 			isa = PBXGroup;
 			children = (
-				3FD6FC6E2975E5B70022659E /* Helper */,
+				3FD6FC6E2975E5B70022659E /* Model */,
 				3FD6FC602971AAC90022659E /* Localizable */,
 				3FAEBDCE295A2DF70052AB1C /* Classes */,
 				3FB74B4A29479A1A0052B000 /* Cell */,
@@ -135,8 +131,8 @@
 				3F261639291C4358001B6C7F /* MainMenuViewController.swift */,
 				3F620845292A65060040B909 /* SettingsViewController.swift */,
 				3FB74B4829479A0E0052B000 /* RecordsViewController.swift */,
-				3F8BD2B62996A19300615BCE /* RecordViewModel.swift */,
-				3F1E2BC52911BF1400B26D82 /* ViewController.swift */,
+				3F8BD2B62996A19300615BCE /* RecordViewСontrollerModel.swift */,
+				3F1E2BC52911BF1400B26D82 /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,9 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */,
-				3FAEBDCF295A2EA60052AB1C /* Records.swift */,
 				3FD6FC6C29745BFF0022659E /* EnemiesData.swift */,
-				3FD6FC6A297456260022659E /* Enemies.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -178,12 +172,12 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		3FD6FC6E2975E5B70022659E /* Helper */ = {
+		3FD6FC6E2975E5B70022659E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3F635B54292C3A020039B818 /* StorageManager.swift */,
 			);
-			path = Helper;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5FADCF846F2F4DB36D279949 /* Pods */ = {
@@ -321,13 +315,11 @@
 				3FB74B4C29479A330052B000 /* RecordsTableViewCell.swift in Sources */,
 				3F000D242922CB03007605D9 /* UIViewController + Extension.swift in Sources */,
 				3FD6FC6D29745BFF0022659E /* EnemiesData.swift in Sources */,
-				3F1E2BC62911BF1400B26D82 /* ViewController.swift in Sources */,
-				3FD6FC6B297456260022659E /* Enemies.swift in Sources */,
+				3F1E2BC62911BF1400B26D82 /* GameViewController.swift in Sources */,
 				3F620846292A65060040B909 /* SettingsViewController.swift in Sources */,
-				3F8BD2B72996A19300615BCE /* RecordViewModel.swift in Sources */,
+				3F8BD2B72996A19300615BCE /* RecordViewСontrollerModel.swift in Sources */,
 				3F1E2BC22911BF1400B26D82 /* AppDelegate.swift in Sources */,
 				3FAEBDCD295A2DDE0052AB1C /* RecordData.swift in Sources */,
-				3FAEBDD0295A2EA60052AB1C /* Records.swift in Sources */,
 				3F635B55292C3A020039B818 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

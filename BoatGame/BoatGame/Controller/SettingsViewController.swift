@@ -1,8 +1,18 @@
 import UIKit
 
+//MARK: - Extensions
+private extension Double {
+    static let borderWidthForButtons = 0.5
+}
+
+private extension CGFloat {
+    static let cornerRadiusForButtons = CGFloat(16)
+}
+
+//MARK: - Classes
 class SettingsViewController: UIViewController {
     
-    // MARK: IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -15,12 +25,11 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var enterPlayerNameLabel: UILabel!
     @IBOutlet weak var mainGameSettingsLabel: UILabel!
     
-    // MARK: let/var
-    let borderWidthForButtons = 0.5
-    let cornerRadiusForButtons = CGFloat(16)
+    // MARK: - let/var
     let colorForSaveButtons: UIColor = .systemBlue
+    let storageManager = StorageManager.shared
     
-    // MARK: life cycle
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addTapRecognizerForClosingKeyboard()
@@ -37,7 +46,7 @@ class SettingsViewController: UIViewController {
         createSaveButton()
     }
     
-    // MARK: Actions
+    // MARK: - IBActions
     @IBAction func closeButtonPressed(_ sender: UIButton) {
         self.closeSettingsMenu()
     }
@@ -59,43 +68,26 @@ class SettingsViewController: UIViewController {
         default:
             self.chooseBoat(boatName: "boat")
         }
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "chosenOptionOfBoats")
+        UserDefaults.standard.set(
+            sender.selectedSegmentIndex,
+            forKey: "chosenOptionOfBoats"
+        )
     }
     
     @IBAction func enemySegmentedSelected(_ sender: UISegmentedControl) {
-        StorageManager.shared.saveEnemy(sender.selectedSegmentIndex)
+        storageManager.saveEnemy(sender.selectedSegmentIndex)
         UserDefaults.standard.set(
             sender.selectedSegmentIndex,
             forKey: "chosenOptionOfEnemy"
         )
     }
     
-    // MARK: Navigation
+    // MARK: - Navigation
     private func closeSettingsMenu() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: Functions
-    private func addAllMethods() {
-        createBackground()
-        createCloseButton()
-        createSaveButton()
-        addTapRecognizerForClosingKeyboard()
-        loadNameInNameTextField()
-        saveChosenSegmentedOption()
-        addAllLabels()
-        createSegmentedControl()
-    }
-    
-    private func createSegmentedControl() {
-        boatSegmentedControl.setTitle("White".localized, forSegmentAt: 0)
-        boatSegmentedControl.setTitle("Purple".localized, forSegmentAt: 1)
-        boatSegmentedControl.setTitle("Green".localized, forSegmentAt: 2)
-        enemySegmentControl.setTitle("Mountains".localized, forSegmentAt: 0)
-        enemySegmentControl.setTitle("Icebergs".localized, forSegmentAt: 1)
-        enemySegmentControl.setTitle("Whales".localized, forSegmentAt: 2)
-    }
-    
+    // MARK: - UI
     private func createBackground() {
         backgroundView.addGradient()
     }
@@ -106,11 +98,10 @@ class SettingsViewController: UIViewController {
         nameTextField.placeholder = "Please enter your name".localized
         selectTheBoatLabel.text = "Select the boat".localized
         selectTheEnemyLabel.text = "Select the enemy".localized
-        
     }
     
     private func createCloseButton() {
-        closeButton.buttonParameters(borderWidth: self.borderWidthForButtons)
+        closeButton.buttonParameters(borderWidth: .borderWidthForButtons)
         closeButton.dropShadow()
         closeButton.setTitle("Back".localized, for: .normal)
     }
@@ -118,28 +109,41 @@ class SettingsViewController: UIViewController {
     private func createSaveButton() {
         saveButton.dropShadow()
         saveButton.buttonParameters(
-            radius: self.cornerRadiusForButtons,
+            radius: .cornerRadiusForButtons,
             backgroundColor: self.colorForSaveButtons,
-            borderWidth: self.borderWidthForButtons
+            borderWidth: .borderWidthForButtons
         )
         saveButton.setTitle("Save".localized, for: .normal)
     }
     
-    private func chooseBoat(boatName: String) {
-        guard let image = UIImage(named: boatName),
-              let imageName = StorageManager.shared.saveBoatImage(image) else {
-            return }
-        StorageManager.shared.saveBoatName(imageName)
-    }
-    
     private func addTapRecognizerForClosingKeyboard(){
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapDetected(_:)))
+        let recognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapDetected(_:))
+        )
         recognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(recognizer)
     }
     
     @objc func tapDetected(_ recognizer: UITapGestureRecognizer) {
         self.nameTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Functionality
+    private func createSegmentedControl() {
+        boatSegmentedControl.setTitle("White".localized, forSegmentAt: 0)
+        boatSegmentedControl.setTitle("Purple".localized, forSegmentAt: 1)
+        boatSegmentedControl.setTitle("Green".localized, forSegmentAt: 2)
+        enemySegmentControl.setTitle("Mountains".localized, forSegmentAt: 0)
+        enemySegmentControl.setTitle("Icebergs".localized, forSegmentAt: 1)
+        enemySegmentControl.setTitle("Whales".localized, forSegmentAt: 2)
+    }
+    
+    private func chooseBoat(boatName: String) {
+        guard let image = UIImage(named: boatName),
+              let imageName = storageManager.saveBoatImage(image) else {
+            return }
+        storageManager.saveBoatName(imageName)
     }
     
     private func saveUserName(){
@@ -152,7 +156,7 @@ class SettingsViewController: UIViewController {
                 self.missingPlayerNameAlert()
             } else {
                 guard let playerName = self.nameTextField.text else { return }
-                StorageManager.shared.saveUserName(playerName)
+                self.storageManager.saveUserName(playerName)
                 self.closeSettingsMenu()
             }
         }
@@ -175,19 +179,22 @@ class SettingsViewController: UIViewController {
             message: "Please, write the player name".localized,
             preferredStyle: .alert
         )
-        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        let cancel = UIAlertAction(
+            title: "Cancel".localized,
+            style: .cancel
+        )
         alert.addAction(cancel)
         self.present(alert, animated: true)
     }
     
     private func loadNameInNameTextField() {
-        let text = StorageManager.shared.loadUserName()
+        let text = storageManager.loadUserName()
         self.nameTextField.text = text
     }
 }
-// MARK: Extensions
+
+// MARK: - Extensions
 extension SettingsViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

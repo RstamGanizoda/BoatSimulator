@@ -1,13 +1,4 @@
-/* 
-  Localizable.strings
-  BoatGame
-
-  Created by Rstam Ganizoda on 13/01/2023.
-  
-*/
-
 // General
-
 "Back" = "Zurück";
 
 "Cancel" = "Abbrechen";
@@ -15,7 +6,6 @@
 "Error" = "Fehler";
 
 // MainMenuViewController
-
 "Missing game settings" = "Fehlende Spieleinstellungen";
 
 "Please, set the game parameters" = "Bitte, setze die Spielparameter";
@@ -30,9 +20,7 @@
 
 "Start Game" = "Spiel starten";
 
-
 // RecordsViewController
-
 "Top results" = "Top Ergebnisse";
 
 "Records" = "Aufzeich.";
@@ -66,7 +54,6 @@
 "Please, write the player name" = "Bitte schreiben Sie den Spielernamen";
 
 // ViewController
-
 "GAME OVER" = "SPIEL AUS";
 
 "Good luck, " = "Viel Glück, ";
