@@ -2,6 +2,40 @@ import UIKit
 import AVFoundation
 import CoreMotion
 
+//MARK: - Extensions
+private extension Double {
+    static let durationForBoat = 0.3
+    static let durationForBoatJump = 1.0
+    static let borderWidthForButtons = 0.5
+    static let durationForTheSea = 10.1
+    static let durationForFirstEnemy = 8.1
+    static let durationForSecondEnemy = 7.1
+    static let durationForThirdEnemy = 6.1
+    static let shadowOpacity = 0.5
+    static let widthShadowOffset = 5.0
+    static let heightShadowOffset = 8.0
+}
+
+private extension Int {
+    static let widthOfEnemies = 60
+    static let heightOfEnemies = 60
+}
+
+private extension CGFloat {
+    static let directionForBoat = CGFloat(10)
+    static let cornerRadiusForButtons = CGFloat(16)
+    static let downDirection = CGFloat(300)
+    static let boatSize = CGFloat(80)
+    static let shadowRadius = CGFloat(15)
+}
+
+private extension String {
+    static let gameSoundtrack = "gameSoundtrack"
+    static let boatExplosionSound = "boatExplosion"
+    static let dateFormat = "HH:mm:ss, MMM d, yyyy"
+}
+
+//MARK: - classes
 class GameViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -12,51 +46,34 @@ class GameViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     
     //  MARK: - let/var
-    let directionForBoat = CGFloat(10)
-    let cornerRadiusForButtons = CGFloat(16)
-    let colorForDirectionButtons: UIColor = .systemBlue
-    let widthOfEnemies = 60
-    let heightOfEnemies = 60
-    let downDirection = CGFloat(300)
-    let durationForBoat = 0.3
-    let durationForBoatJump = 1.0
-    let borderWidthForButtons = 0.5
-    let durationForTheSea = 10.1
-    let durationForFirstEnemy = 8.1
-    let durationForSecondEnemy = 7.1
-    let durationForThirdEnemy = 6.1
-    let boatSize = CGFloat(80)
-    var scores = 0
-    var accelerometerUpdateInterval = 0.10
-    var gyroUpdateInterval = 0.50
-    let gameSoundtrack = "gameSoundtrack"
-    let boatExplosionSound = "boatExplosion"
-    let date = Date()
-    let dateFormatter = DateFormatter()
-    let dateFormat = "HH:mm:ss, MMM d, yyyy"
     var recordArray = RecordData.shared.recordsArray
     let getSavedRecords = StorageManager.shared.getRecords()
     let chosenEnemyIndex = StorageManager.shared.loadEnemy()
     let enemiesArray = EnemiesData.shared.enemies
-    private let aboveSeaImageView = UIImageView()
-    private let seaImageView = UIImageView()
-    private var seaImage = UIImage(named: "backgroundsWaves")
-    
-    var enemies: [UIImageView] = []
-    let boatImageView = UIImageView()
-    let firstEnemyImageView = UIImageView()
-    let secondEnemyImageView = UIImageView()
-    let thirdEnemyImageView = UIImageView()
+    let motionManager = CMMotionManager()
+    let dateFormatter = DateFormatter()
+    let date = Date()
     var scoreTimer = Timer()
     var intersectionTimer = Timer()
     var player: AVAudioPlayer?
-    let motionManager = CMMotionManager()
+    private let aboveSeaImageView = UIImageView()
+    private let seaImageView = UIImageView()
+    private var enemies: [UIImageView] = []
+    private let boatImageView = UIImageView()
+    private let firstEnemyImageView = UIImageView()
+    private let secondEnemyImageView = UIImageView()
+    private let thirdEnemyImageView = UIImageView()
+    private let colorForDirectionButtons: UIColor = .systemBlue
+    private var scores = 0
+    private var accelerometerUpdateInterval = 0.10
+    private var gyroUpdateInterval = 0.50
+    private var seaImage = UIImage(named: "backgroundsWaves")
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPreviousRecords()
-        playAudio(song: gameSoundtrack, numberOfLoops: -1)
+        playAudio(song: .gameSoundtrack, numberOfLoops: -1)
         setupIntersectionTimer()
         setupScoreTimer()
         addUserName()
@@ -78,7 +95,7 @@ class GameViewController: UIViewController {
         createAllEnemies()
     }
     
-    // MARK: - Actions
+    // MARK: - IBActions
     @IBAction func backButtonPressed(_ sender: UIButton){
         intersectionTimer.invalidate()
         motionManager.stopAccelerometerUpdates()
@@ -87,12 +104,12 @@ class GameViewController: UIViewController {
         player?.stop()
     }
     
-    // MARK: Navigation
+    // MARK: - Navigation
     private func popToMainMenuVC(){
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    // MARK: UI creation
+    // MARK: - UI
     private  func addUserName() {
         if let playerName = StorageManager.shared.loadUserName() {
             self.topLabel.text = ("Good luck, ".localized + "\(playerName)")
@@ -121,7 +138,11 @@ class GameViewController: UIViewController {
     }
     
     private func moveSeaDown () {
-        UIView.animate(withDuration: self.durationForTheSea, delay: 0, options: .curveLinear) {
+        UIView.animate(
+            withDuration: .durationForTheSea,
+            delay: 0,
+            options: .curveLinear
+        ) {
             self.seaImageView.frame.origin.y = self.backgroundView.frame.height
             self.aboveSeaImageView.frame.origin.y = self.backgroundView.frame.origin.y
         } completion: { _ in
@@ -137,10 +158,10 @@ class GameViewController: UIViewController {
     
     private  func createBoat(){
         boatImageView.frame = CGRect(
-            x: self.gameView.frame.width / 2 - self.boatSize / 2,
-            y: self.gameView.frame.height - self.boatSize * 1.5,
-            width: self.boatSize,
-            height: self.boatSize
+            x: self.gameView.frame.width / 2 - .boatSize / 2,
+            y: self.gameView.frame.height - .boatSize * 1.5,
+            width: .boatSize,
+            height: .boatSize
         )
         guard let imageName = StorageManager.shared.loadBoatName() else { return }
         let boatImage = StorageManager.shared.loadBoatImage(fileName: imageName)
@@ -151,7 +172,7 @@ class GameViewController: UIViewController {
     
     private  func createBackButton(){
         backButton.dropShadow()
-        backButton.buttonParameters(borderWidth: self.borderWidthForButtons)
+        backButton.buttonParameters(borderWidth: .borderWidthForButtons)
         backButton.setTitle("Back".localized, for: .normal)
     }
     
@@ -160,9 +181,12 @@ class GameViewController: UIViewController {
         self.boatImageView.image = explosionImage
     }
     
-    // MARK: Functionality
+    // MARK: - Functionality
     private func addTapRecognizerForBoatJump(){
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapDetected(_:)))
+        let recognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapDetected(_:))
+        )
         recognizer.numberOfTapsRequired = 2
         self.gameView.addGestureRecognizer(recognizer)
     }
@@ -184,19 +208,19 @@ class GameViewController: UIViewController {
     
     private func addBoatJumpAnimation(){
         self.intersectionTimer.invalidate()
-        UIView.animate(withDuration: self.durationForBoatJump) {
+        UIView.animate(withDuration: .durationForBoatJump) {
             self.boatImageView.frame.size = CGSize(
-                width: self.boatSize * 2,
-                height: self.boatSize * 2
+                width: .boatSize * 2,
+                height: .boatSize * 2
             )
-            self.boatImageView.frame.origin.y = self.gameView.frame.height - self.boatSize * 4
+            self.boatImageView.frame.origin.y = self.gameView.frame.height - .boatSize * 4
         } completion: { _ in
-            UIView.animate(withDuration: self.durationForBoatJump) {
+            UIView.animate(withDuration: .durationForBoatJump) {
                 self.boatImageView.frame.size = CGSize(
-                    width: self.boatSize,
-                    height: self.boatSize
+                    width: .boatSize,
+                    height: .boatSize
                 )
-                self.boatImageView.frame.origin.y = self.gameView.frame.height - self.boatSize * 1.5
+                self.boatImageView.frame.origin.y = self.gameView.frame.height - .boatSize * 1.5
             } completion: { _ in
                 self.setupIntersectionTimer()
             }
@@ -227,10 +251,10 @@ class GameViewController: UIViewController {
         }
     }
     
-    private   func moveBoatRight() {
+    private func moveBoatRight() {
         if self.boatImageView.frame.origin.x <= self.view.frame.width - self.boatImageView.frame.width {
-            UIView.animate(withDuration: self.durationForBoat) {
-                self.boatImageView.frame.origin.x += self.directionForBoat }
+            UIView.animate(withDuration: .durationForBoat) {
+                self.boatImageView.frame.origin.x += .directionForBoat }
         } else {
             gameOver()
         }
@@ -238,8 +262,8 @@ class GameViewController: UIViewController {
     
     private func moveBoatLeft() {
         if self.boatImageView.frame.origin.x >= 0 {
-            UIView.animate(withDuration: self.durationForBoat) {
-                self.boatImageView.frame.origin.x -= self.directionForBoat }
+            UIView.animate(withDuration: .durationForBoat) {
+                self.boatImageView.frame.origin.x -= .directionForBoat }
         } else {
             gameOver()
         }
@@ -251,21 +275,21 @@ class GameViewController: UIViewController {
             mountainEnemy: enemiesArray[0].firstEnemy,
             icebergEnemy: enemiesArray[1].firstEnemy,
             whaleEnemy: enemiesArray[2].firstEnemy,
-            enemyDuration: durationForFirstEnemy
+            enemyDuration: .durationForFirstEnemy
         )
         createEnemy(
             enemyImageView: secondEnemyImageView,
             mountainEnemy: enemiesArray[0].secondEnemy,
             icebergEnemy: enemiesArray[1].secondEnemy,
             whaleEnemy: enemiesArray[2].secondEnemy,
-            enemyDuration: durationForSecondEnemy
+            enemyDuration: .durationForSecondEnemy
         )
         createEnemy(
             enemyImageView: thirdEnemyImageView,
             mountainEnemy: enemiesArray[0].thirdEnemy,
             icebergEnemy: enemiesArray[1].thirdEnemy,
             whaleEnemy: enemiesArray[2].thirdEnemy,
-            enemyDuration: durationForThirdEnemy
+            enemyDuration: .durationForThirdEnemy
         )
     }
     
@@ -276,14 +300,13 @@ class GameViewController: UIViewController {
         whaleEnemy: String,
         enemyDuration: Double
     ){
-        
         let x = Int(arc4random_uniform(UInt32(gameView.frame.width)))
         let y = Int(arc4random_uniform(UInt32(gameView.frame.origin.x)))
         let coordinatesForEnemies = CGRect(
             x: x,
             y: y,
-            width: self.widthOfEnemies,
-            height: self.heightOfEnemies
+            width: .widthOfEnemies,
+            height: .heightOfEnemies
         )
         switch chosenEnemyIndex {
         case 0:
@@ -414,11 +437,9 @@ class GameViewController: UIViewController {
         self.firstEnemyImageView.removeFromSuperview()
         self.secondEnemyImageView.removeFromSuperview()
         player?.stop()
-        playAudio(song: boatExplosionSound, numberOfLoops: 0)
-        dateFormatter.dateFormat = dateFormat
+        playAudio(song: .boatExplosionSound, numberOfLoops: 0)
+        dateFormatter.dateFormat = .dateFormat
         let currentDate = dateFormatter.string(from: date)
-        
-        // Save result of the game
         let result = Records(
             name: StorageManager.shared.loadUserName(),
             score: scores,
@@ -428,15 +449,18 @@ class GameViewController: UIViewController {
         StorageManager.shared.saveRecords(array: recordArray)
     }
 }
+
 // MARK: - Extensions
 extension UIImageView {
-    
     func dropShadowForImages() {
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize(width: 5, height: 12)
-        self.layer.shadowRadius = 30
+        self.layer.shadowOpacity = Float(.shadowOpacity)
+        self.layer.shadowOffset = CGSize(
+            width: .widthShadowOffset,
+            height: .heightShadowOffset
+        )
+        self.layer.shadowRadius = .shadowRadius
         self.layer.shadowPath = UIBezierPath(
             roundedRect: self.bounds,
             cornerRadius: self.layer.cornerRadius

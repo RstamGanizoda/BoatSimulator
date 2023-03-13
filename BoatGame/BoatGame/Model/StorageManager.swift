@@ -1,20 +1,21 @@
 import UIKit
 
-//MARK: extensions
+//MARK: - extensions
 private extension String {
     static let nameKey = "nameKey"
     static let boatImageKey = "boatImageKey"
-    static let boatSegmentControlKey = "boatSegmentControlKey"
     static let recordsKey = "recordsKey"
     static let enemyKey = "enemyKey"
 }
 
+//MARK: - classes
 class StorageManager {
     
+    //MARK: - let/var
     static let shared = StorageManager()
     private init() {}
     
-    // Save and load enemy
+    //MARK: - Functionality
     func saveEnemy(_ index: Int) {
         UserDefaults.standard.set(index, forKey: .enemyKey)
     }
@@ -24,7 +25,6 @@ class StorageManager {
         return name
     }
     
-    //Save and Load Player name
     func saveUserName(_ name: String) {
         UserDefaults.standard.set(name, forKey: .nameKey)
     }
@@ -34,7 +34,6 @@ class StorageManager {
         return name
     }
     
-    // Save and load a Boat
     func saveBoatName(_ name: String) {
         UserDefaults.standard.set(name, forKey: .boatImageKey)
     }
@@ -45,12 +44,13 @@ class StorageManager {
     }
     
     func saveBoatImage(_ image: UIImage) -> String? {
-        guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        guard let directory = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        ).first else { return nil }
         let fileName = UUID().uuidString
         let fileURL = directory.appendingPathComponent(fileName)
-        
         guard let data = image.pngData() else { return nil }
-        
         if  FileManager.default.fileExists(atPath: fileURL.path) {
             do {
                 try FileManager.default.removeItem(atPath: fileURL.path)
@@ -75,7 +75,6 @@ class StorageManager {
         return image
     }
     
-    // Save and load Records
     func saveRecords(array: [Records]?) {
         UserDefaults.standard.set(encodable: array, forKey: .recordsKey)
     }
@@ -86,9 +85,8 @@ class StorageManager {
     }
 }
 
-// MARK: Extension UserDefaults
+// MARK: - Extensions
 extension UserDefaults {
-    
     func set<T: Encodable>(encodable: T, forKey key: String) {
         if let data = try? JSONEncoder().encode(encodable) {
             set(data, forKey: key)
