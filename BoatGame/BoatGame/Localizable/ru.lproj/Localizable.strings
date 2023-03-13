@@ -1,0 +1,62 @@
+// General
+"Back" = "Назад";
+
+"Cancel" = "Отмена";
+
+"Error" = "Ошибка";
+
+// MainMenuViewController
+"Missing game settings" = "Отсутствуют настройки игры";
+
+"Please, set the game parameters" = "Пожалуйста, выберите параметры игры";
+
+"Set" = "Выбрать";
+
+"Boat Simulator" = "Cимулятор катера";
+
+"Records" = "Рекорды";
+
+"Settings" = "Настройки";
+
+"Start Game" = "Начать игру";
+
+// RecordsViewController
+"Top results" = "Лучшие результаты";
+
+"Records" = "Рекорды";
+
+// SettingsViewController
+"White" = "Белая";
+
+"Purple" = "Фиолетовая";
+
+"Green" = "Зеленая";
+
+"Mountains" = "Горы";
+
+"Icebergs" = "Айсберги";
+
+"Whales" = "Киты";
+
+"Game Settings" = "Настройки Игры";
+
+"Enter the player name" = "Введите имя игрока";
+
+"Please enter your name" = "Пожалуйста, введите ваше имя";
+
+"Select the boat" = "Выберите лодку";
+
+"Select the enemy" = "Выберите противника";
+
+"Save" = "Сохранить";
+
+"Please, write the player name" = "Пожалуйста, введите имя игрока";
+
+// ViewController
+"GAME OVER" = "ИГРА ОКОНЧЕНА";
+
+"Good luck, " = "Удачи, ";
+
+"Try again" = "Начать заново";
+
+"Your score is " = "Количество очков - ";

@@ -1,0 +1,67 @@
+// General
+
+"Back" = "Back";
+
+"Cancel" = "Cancel";
+
+"Error" = "Error";
+
+// MainMenuViewController
+
+"Missing game settings" = "Missing game settings";
+
+"Please, set the game parameters" = "Please, set the game parameters";
+
+"Set" = "Set";
+
+"Boat Simulator" = "Boat Simulator";
+
+"Records" = "Records";
+
+"Settings" = "Settings";
+
+"Start Game" = "Start Game";
+
+// RecordsViewController
+
+"Top results" = "Top results";
+
+"Records" = "Records";
+
+// SettingsViewController
+
+"White" = "White";
+
+"Purple" = "Purple";
+
+"Green" = "Green";
+
+"Mountains" = "Mountains";
+
+"Icebergs" = "Icebergs";
+
+"Whales" = "Whales";
+
+"Game settings" = "Game settings";
+
+"Enter the player name" = "Enter the player name";
+
+"Please enter your name" = "Please enter your name";
+
+"Select the boat" = "Select the boat";
+
+"Select the enemy" = "Select the enemy";
+
+"Save" = "Save";
+
+"Please, write the player name" = "Please, write the player name";
+
+// ViewController
+
+"GAME OVER" = "GAME OVER";
+
+"Good luck, " = "Good luck, ";
+
+"Try again" = "Try again";
+
+"Your score is " = "Your score is ";

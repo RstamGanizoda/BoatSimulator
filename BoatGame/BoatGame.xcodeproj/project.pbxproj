@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DD2C0357FEEA0C87CBF1865 /* Pods_BoatGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */; };
+		3F000D242922CB03007605D9 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F000D232922CB03007605D9 /* UIViewController + Extension.swift */; };
+		3F1E2BC22911BF1400B26D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */; };
+		3F1E2BC62911BF1400B26D82 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC52911BF1400B26D82 /* GameViewController.swift */; };
+		3F1E2BC92911BF1400B26D82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E2BC72911BF1400B26D82 /* Main.storyboard */; };
+		3F1E2BCB2911BF1B00B26D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E2BCA2911BF1B00B26D82 /* Assets.xcassets */; };
+		3F1E2BCE2911BF1B00B26D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E2BCC2911BF1B00B26D82 /* LaunchScreen.storyboard */; };
+		3F26163A291C4358001B6C7F /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F261639291C4358001B6C7F /* MainMenuViewController.swift */; };
+		3F26163D291C5982001B6C7F /* days-one.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F26163C291C5982001B6C7F /* days-one.regular.ttf */; };
+		3F620846292A65060040B909 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F620845292A65060040B909 /* SettingsViewController.swift */; };
+		3F635B55292C3A020039B818 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F635B54292C3A020039B818 /* StorageManager.swift */; };
+		3F73D4AA296ACBE000428B95 /* gameSoundtrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */; };
+		3F73D4AC296AD34500428B95 /* boatExplosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */; };
+		3F8BD2B72996A19300615BCE /* RecordViewСontrollerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BD2B62996A19300615BCE /* RecordViewСontrollerModel.swift */; };
+		3FAEBDCD295A2DDE0052AB1C /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */; };
+		3FB74B4929479A0E0052B000 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB74B4829479A0E0052B000 /* RecordsViewController.swift */; };
+		3FB74B4C29479A330052B000 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB74B4B29479A330052B000 /* RecordsTableViewCell.swift */; };
+		3FD6FC632971AB2F0022659E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FD6FC652971AB2F0022659E /* Localizable.strings */; };
+		3FD6FC6D29745BFF0022659E /* EnemiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6FC6C29745BFF0022659E /* EnemiesData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		284ED44B7C7E8B78C5FE58C8 /* Pods-BoatGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatGame.release.xcconfig"; path = "Target Support Files/Pods-BoatGame/Pods-BoatGame.release.xcconfig"; sourceTree = "<group>"; };
+		3F000D232922CB03007605D9 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController + Extension.swift"; path = "BoatGame/Extensions/UIViewController + Extension.swift"; sourceTree = SOURCE_ROOT; };
+		3F1E2BBE2911BF1400B26D82 /* BoatGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F1E2BC52911BF1400B26D82 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		3F1E2BC82911BF1400B26D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F1E2BCA2911BF1B00B26D82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F1E2BCD2911BF1B00B26D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F1E2BCF2911BF1B00B26D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F261639291C4358001B6C7F /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		3F26163C291C5982001B6C7F /* days-one.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "days-one.regular.ttf"; sourceTree = "<group>"; };
+		3F620845292A65060040B909 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3F635B54292C3A020039B818 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameSoundtrack.mp3; sourceTree = "<group>"; };
+		3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boatExplosion.mp3; sourceTree = "<group>"; };
+		3F8BD2B62996A19300615BCE /* RecordViewСontrollerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordViewСontrollerModel.swift"; sourceTree = "<group>"; };
+		3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
+		3FB74B4829479A0E0052B000 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		3FB74B4B29479A330052B000 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		3FD6FC5E2971AABB0022659E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		3FD6FC5F2971AABB0022659E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3FD6FC642971AB2F0022659E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3FD6FC662971AB330022659E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3FD6FC672971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		3FD6FC682971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3FD6FC692971DD440022659E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3FD6FC6C29745BFF0022659E /* EnemiesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemiesData.swift; sourceTree = "<group>"; };
+		50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatGame.debug.xcconfig"; path = "Target Support Files/Pods-BoatGame/Pods-BoatGame.debug.xcconfig"; sourceTree = "<group>"; };
+		93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F1E2BBB2911BF1400B26D82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DD2C0357FEEA0C87CBF1865 /* Pods_BoatGame.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39EB9DEE503F39CDE4F07ED2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93D7AC205BEDA57EFAFF67C6 /* Pods_BoatGame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F000D252923879C007605D9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3F000D232922CB03007605D9 /* UIViewController + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3F1E2BB52911BF1400B26D82 = {
+			isa = PBXGroup;
+			children = (
+				3F1E2BC02911BF1400B26D82 /* BoatGame */,
+				3F1E2BBF2911BF1400B26D82 /* Products */,
+				5FADCF846F2F4DB36D279949 /* Pods */,
+				39EB9DEE503F39CDE4F07ED2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3F1E2BBF2911BF1400B26D82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F1E2BBE2911BF1400B26D82 /* BoatGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F1E2BC02911BF1400B26D82 /* BoatGame */ = {
+			isa = PBXGroup;
+			children = (
+				3FD6FC6E2975E5B70022659E /* Model */,
+				3FD6FC602971AAC90022659E /* Localizable */,
+				3FAEBDCE295A2DF70052AB1C /* Classes */,
+				3FB74B4A29479A1A0052B000 /* Cell */,
+				3F000D252923879C007605D9 /* Extension */,
+				3F26163B291C596A001B6C7F /* Resource */,
+				3F261638291C432D001B6C7F /* Controller */,
+				3F1E2BC12911BF1400B26D82 /* AppDelegate.swift */,
+				3F1E2BC72911BF1400B26D82 /* Main.storyboard */,
+				3F1E2BCA2911BF1B00B26D82 /* Assets.xcassets */,
+				3F1E2BCC2911BF1B00B26D82 /* LaunchScreen.storyboard */,
+				3F1E2BCF2911BF1B00B26D82 /* Info.plist */,
+			);
+			path = BoatGame;
+			sourceTree = "<group>";
+		};
+		3F261638291C432D001B6C7F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F261639291C4358001B6C7F /* MainMenuViewController.swift */,
+				3F620845292A65060040B909 /* SettingsViewController.swift */,
+				3FB74B4829479A0E0052B000 /* RecordsViewController.swift */,
+				3F8BD2B62996A19300615BCE /* RecordViewСontrollerModel.swift */,
+				3F1E2BC52911BF1400B26D82 /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F26163B291C596A001B6C7F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3F26163C291C5982001B6C7F /* days-one.regular.ttf */,
+				3F73D4A9296ACBE000428B95 /* gameSoundtrack.mp3 */,
+				3F73D4AB296AD34500428B95 /* boatExplosion.mp3 */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3FAEBDCE295A2DF70052AB1C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FAEBDCC295A2DDE0052AB1C /* RecordData.swift */,
+				3FD6FC6C29745BFF0022659E /* EnemiesData.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3FB74B4A29479A1A0052B000 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FB74B4B29479A330052B000 /* RecordsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3FD6FC602971AAC90022659E /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				3FD6FC652971AB2F0022659E /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		3FD6FC6E2975E5B70022659E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F635B54292C3A020039B818 /* StorageManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5FADCF846F2F4DB36D279949 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */,
+				284ED44B7C7E8B78C5FE58C8 /* Pods-BoatGame.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F1E2BBD2911BF1400B26D82 /* BoatGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F1E2BD22911BF1B00B26D82 /* Build configuration list for PBXNativeTarget "BoatGame" */;
+			buildPhases = (
+				096D88511D424039C3605C6E /* [CP] Check Pods Manifest.lock */,
+				3F1E2BBA2911BF1400B26D82 /* Sources */,
+				3F1E2BBB2911BF1400B26D82 /* Frameworks */,
+				3F1E2BBC2911BF1400B26D82 /* Resources */,
+				C9EE08AF49DF8CAFABD2A2FB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatGame;
+			productName = BoatGame;
+			productReference = 3F1E2BBE2911BF1400B26D82 /* BoatGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F1E2BB62911BF1400B26D82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					3F1E2BBD2911BF1400B26D82 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 3F1E2BB92911BF1400B26D82 /* Build configuration list for PBXProject "BoatGame" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+				de,
+			);
+			mainGroup = 3F1E2BB52911BF1400B26D82;
+			productRefGroup = 3F1E2BBF2911BF1400B26D82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F1E2BBD2911BF1400B26D82 /* BoatGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F1E2BBC2911BF1400B26D82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F26163D291C5982001B6C7F /* days-one.regular.ttf in Resources */,
+				3F1E2BCE2911BF1B00B26D82 /* LaunchScreen.storyboard in Resources */,
+				3F73D4AC296AD34500428B95 /* boatExplosion.mp3 in Resources */,
+				3FD6FC632971AB2F0022659E /* Localizable.strings in Resources */,
+				3F73D4AA296ACBE000428B95 /* gameSoundtrack.mp3 in Resources */,
+				3F1E2BCB2911BF1B00B26D82 /* Assets.xcassets in Resources */,
+				3F1E2BC92911BF1400B26D82 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		096D88511D424039C3605C6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BoatGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9EE08AF49DF8CAFABD2A2FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoatGame/Pods-BoatGame-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoatGame/Pods-BoatGame-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoatGame/Pods-BoatGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F1E2BBA2911BF1400B26D82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F26163A291C4358001B6C7F /* MainMenuViewController.swift in Sources */,
+				3FB74B4929479A0E0052B000 /* RecordsViewController.swift in Sources */,
+				3FB74B4C29479A330052B000 /* RecordsTableViewCell.swift in Sources */,
+				3F000D242922CB03007605D9 /* UIViewController + Extension.swift in Sources */,
+				3FD6FC6D29745BFF0022659E /* EnemiesData.swift in Sources */,
+				3F1E2BC62911BF1400B26D82 /* GameViewController.swift in Sources */,
+				3F620846292A65060040B909 /* SettingsViewController.swift in Sources */,
+				3F8BD2B72996A19300615BCE /* RecordViewСontrollerModel.swift in Sources */,
+				3F1E2BC22911BF1400B26D82 /* AppDelegate.swift in Sources */,
+				3FAEBDCD295A2DDE0052AB1C /* RecordData.swift in Sources */,
+				3F635B55292C3A020039B818 /* StorageManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F1E2BC72911BF1400B26D82 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F1E2BC82911BF1400B26D82 /* Base */,
+				3FD6FC5E2971AABB0022659E /* ru */,
+				3FD6FC672971DD440022659E /* de */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F1E2BCC2911BF1B00B26D82 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F1E2BCD2911BF1B00B26D82 /* Base */,
+				3FD6FC5F2971AABB0022659E /* ru */,
+				3FD6FC682971DD440022659E /* de */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3FD6FC652971AB2F0022659E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FD6FC642971AB2F0022659E /* en */,
+				3FD6FC662971AB330022659E /* ru */,
+				3FD6FC692971DD440022659E /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F1E2BD02911BF1B00B26D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F1E2BD12911BF1B00B26D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F1E2BD32911BF1B00B26D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50518E8161FACBCBE9087EE0 /* Pods-BoatGame.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRC9A4U56C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoatGame/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rstam.ganizoda.BoatGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F1E2BD42911BF1B00B26D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 284ED44B7C7E8B78C5FE58C8 /* Pods-BoatGame.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRC9A4U56C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoatGame/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rstam.ganizoda.BoatGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F1E2BB92911BF1400B26D82 /* Build configuration list for PBXProject "BoatGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F1E2BD02911BF1B00B26D82 /* Debug */,
+				3F1E2BD12911BF1B00B26D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F1E2BD22911BF1B00B26D82 /* Build configuration list for PBXNativeTarget "BoatGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F1E2BD32911BF1B00B26D82 /* Debug */,
+				3F1E2BD42911BF1B00B26D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F1E2BB62911BF1400B26D82 /* Project object */;
+}

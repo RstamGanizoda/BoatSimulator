@@ -1,0 +1,84 @@
+
+/* Class = "UIButton"; normalTitle = "Records"; ObjectID = "3Cc-vX-t5X"; */
+"3Cc-vX-t5X.normalTitle" = "Records";
+
+/* Class = "UIButton"; normalTitle = "Start Game"; ObjectID = "6e6-7v-ZTB"; */
+"6e6-7v-ZTB.normalTitle" = "Start Game";
+
+/* Class = "UILabel"; text = "Boat Simulator"; ObjectID = "9Pj-Ay-UzO"; */
+"9Pj-Ay-UzO.text" = "Boat Simulator";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AYB-C6-Qgn"; */
+"AYB-C6-Qgn.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "CX6-fO-6Ik"; */
+"CX6-fO-6Ik.normalTitle" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "EbX-Cm-CVT"; */
+"EbX-Cm-CVT.normalTitle" = "Back";
+
+/* Class = "UIButton"; normalTitle = ">"; ObjectID = "FLU-Ki-PUs"; */
+"FLU-Ki-PUs.normalTitle" = ">";
+
+/* Class = "UILabel"; text = "Game settings"; ObjectID = "JtG-wA-LDL"; */
+"JtG-wA-LDL.text" = "Game settings";
+
+/* Class = "UISegmentedControl"; KdQ-oQ-Ihw.segmentTitles[0] = "White"; ObjectID = "KdQ-oQ-Ihw"; */
+"KdQ-oQ-Ihw.segmentTitles[0]" = "White";
+
+/* Class = "UISegmentedControl"; KdQ-oQ-Ihw.segmentTitles[1] = "Purple"; ObjectID = "KdQ-oQ-Ihw"; */
+"KdQ-oQ-Ihw.segmentTitles[1]" = "Purple";
+
+/* Class = "UISegmentedControl"; KdQ-oQ-Ihw.segmentTitles[2] = "Green"; ObjectID = "KdQ-oQ-Ihw"; */
+"KdQ-oQ-Ihw.segmentTitles[2]" = "Green";
+
+/* Class = "UITextField"; placeholder = "Please enter your name"; ObjectID = "Kjn-i0-Xkh"; */
+"Kjn-i0-Xkh.placeholder" = "Please enter your name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "N2n-un-E5c"; */
+"N2n-un-E5c.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "S9b-dx-8NS"; */
+"S9b-dx-8NS.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "agN-Qz-csY"; */
+"agN-Qz-csY.text" = "Label";
+
+/* Class = "UILabel"; text = "Enter the player name"; ObjectID = "fBt-jP-hgy"; */
+"fBt-jP-hgy.text" = "Enter the player name";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "fYO-it-Pw4"; */
+"fYO-it-Pw4.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "h86-lz-9kK"; */
+"h86-lz-9kK.normalTitle" = "Back";
+
+/* Class = "UILabel"; text = "Records"; ObjectID = "iV0-4e-4AY"; */
+"iV0-4e-4AY.text" = "Records";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lDP-KG-p7I"; */
+"lDP-KG-p7I.text" = "Label";
+
+/* Class = "UILabel"; text = "Select the enemy"; ObjectID = "nUs-ri-xBA"; */
+"nUs-ri-xBA.text" = "Select the enemy";
+
+/* Class = "UISegmentedControl"; qH1-hZ-sBd.segmentTitles[0] = "Mountains"; ObjectID = "qH1-hZ-sBd"; */
+"qH1-hZ-sBd.segmentTitles[0]" = "Mountains";
+
+/* Class = "UISegmentedControl"; qH1-hZ-sBd.segmentTitles[1] = "Iceberg"; ObjectID = "qH1-hZ-sBd"; */
+"qH1-hZ-sBd.segmentTitles[1]" = "Iceberg";
+
+/* Class = "UISegmentedControl"; qH1-hZ-sBd.segmentTitles[2] = "Whale"; ObjectID = "qH1-hZ-sBd"; */
+"qH1-hZ-sBd.segmentTitles[2]" = "Whale";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uh2-kS-Ywu"; */
+"uh2-kS-Ywu.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "v4d-35-Jf7"; */
+"v4d-35-Jf7.normalTitle" = "Back";
+
+/* Class = "UIButton"; normalTitle = "<"; ObjectID = "xqf-jd-6Ma"; */
+"xqf-jd-6Ma.normalTitle" = "<";
+
+/* Class = "UILabel"; text = "Select the boat"; ObjectID = "zno-XR-0cb"; */
+"zno-XR-0cb.text" = "Select the boat";
